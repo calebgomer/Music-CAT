@@ -1,44 +1,46 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Music</title>
-    <style>
-      body {
-        width: 20em;
-        height: 10em;
-        overflow-x: hidden;
-      }
-
-      img {
-        margin: 5px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
-    </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
-     -->
+<head>
+  <title>Music</title>
     <link rel='stylesheet' href='popup.css' type='text/css'/>
     <link rel='stylesheet' href='bootstrap.min.css' type='text/css'/>
     <script src="popup.js"></script>
     <script src="bootstrap.min.js"></script>
   </head>
   <body onload="start();">
-    <div>
-      <div id="title">Title</div>
-      <small>by </small><small id="artist">Artist</small>
-      <div>
-        <img id="album_art" src="album.gif"/>
-        <div id="album_title">Album</div>
-      </div>
+    <table id="song_info">
+      <tr>
+        <td>
+          <img id="album_art" class="album_art" src="pictures/album.gif"/>
+        </td>
+        <td>
+          <div id="song_text">
+            <b id="title">Title</b>
+            <div id="artist">Artist</div>
+            <div id="album">Album</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <table class="control_table">
+      <tr>
+        <td align="center">
+          <img class="large_control" id="prev" src="pictures/prev.png">
+          <img class="large_control" id="play" src="pictures/play.png">
+          <img class="large_control" id="next" src="pictures/next.png">
+        </td>
+        <td align="right">
+          <img class="small_control" id="shuffle" src="pictures/shuffle.png">
+          <img class="small_control" id="repeat" src="pictures/repeat.png">
+          <img class="small_control" id="radio" src="pictures/radio.png">
+          <img class="small_control" id="queue" src="pictures/queue.png">
+        </td>
+      </tr>
+    </table>
+    <div class="progress progress-warning">
+      <div class="bar" style="width: 60%;"></div>
+      <div class="pull_right">1:02</div>
     </div>
-
   </body>
 </html>
 

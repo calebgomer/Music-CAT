@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  setTitle("Meow");
+  setTitle("Meow All Day");
   setArtist("The Kittens");
   setAlbum("Becoming a Cat");
 });
