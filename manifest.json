@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Download on Bar",
-  "description": "This extension will allow the user to view and manage their downloads from a popup.",
+  "name": "Extension for Google Play Music",
+  "description": "Adds easy dropdown controls and keyboard shortcuts to Google Play Music.",
   "version": "1.0",
 
   "browser_action": {
