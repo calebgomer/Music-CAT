@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   setTitle("Meow");
   setArtist("The Kittens");
+  setAlbum("Becoming a Cat");
 });
 
 function setArtist(artist) {
@@ -9,6 +10,10 @@ function setArtist(artist) {
 
 function setTitle(title) {
   document.getElementById("title").innerText = title;
+}
+
+function setAlbum(album) {
+  document.getElementById("album").innerText = album;
 }
 
 function setAlbumArt(art) {
