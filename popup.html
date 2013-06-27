@@ -1,10 +1,11 @@
 <!doctype html>
 <html>
   <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>Music</title>
     <style>
       body {
-        min-width: 357px;
+        width: 20em;
+        height: 10em;
         overflow-x: hidden;
       }
 
@@ -25,7 +26,16 @@
      -->
     <script src="popup.js"></script>
   </head>
-  <body>
+  <body onload="start();">
+    <div>
+      <div id="title">Title</div>
+      <small>by </small><small id="artist">Artist</small>
+      <div>
+        <img id="album_art" src="album.gif"/>
+        <div id="album_title">Album</div>
+      </div>
+    </div>
+
   </body>
 </html>
 
