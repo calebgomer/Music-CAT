@@ -6,6 +6,7 @@
     <link rel='stylesheet' href='css/bootstrap.min.css' type='text/css'/>
     <script src="script/popup.js"></script>
     <script src="script/bootstrap.min.js"></script>
+    <script src="script/controls.js"></script>
   </head>
   <body onload="start();">
     <table id="song_info">
@@ -26,7 +27,7 @@
       <tr>
         <td align="center">
           <img class="large_control" id="prev" src="images/prev.png">
-          <img class="large_control" id="play" src="images/play.png">
+          <img onclick="changeBackground()" class="large_control" id="play" src="images/play.png">
           <img class="large_control" id="next" src="images/next.png">
         </td>
         <td align="right">

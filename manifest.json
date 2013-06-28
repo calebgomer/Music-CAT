@@ -9,7 +9,13 @@
     "default_icon": "images/icon.png",
     "default_popup": "popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://play.google.com/music/*"],
+      "js": ["scripts/controls.js"]
+    }
+  ],
   "permissions": [
-    
+    "tabs", "https://play.google.com/music/*"
   ]
 }
