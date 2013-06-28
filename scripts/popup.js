@@ -1,3 +1,4 @@
+var paused;
 document.addEventListener('DOMContentLoaded', function () {
   setTitle("Meow All Day");
   setArtist("The Kittens");
@@ -60,8 +61,10 @@ function updateCurrentSongWithData(data) {
   console.log(data);
   if (data.status === 'playing') {
     $('#play').attr('src','images/pause.png');
+	paused=false;
   } else {
     $('#play').attr('src','images/play.png');
+	paused = true;
   }
   setTitle(data.title);
   setArtist(data.artist);
@@ -141,7 +144,7 @@ function setProgress(progress, duration) {
 }
 
 function increaseProgress() {
-  if (now <= end) {
+  if (now <= end && !paused ) {
     now+=0.25;
     var p = (now/end)*100;
     console.log(p);

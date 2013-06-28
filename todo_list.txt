@@ -2,4 +2,5 @@
 2. Queue
 3. Keyboard functions when extension is visible.  Chrome users can assign keyboard shortcuts to open extensions.
 4. Check status of repeat and shuffle so we can indicate if it is already shuffled/repeating. (There are 3 repeat states)
-
+5. Animate buttons to show they have been clicked
+6. Show current time and total song length
