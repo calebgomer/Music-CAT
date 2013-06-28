@@ -1,3 +1,2 @@
 1. Clicking shuffle and repeat causes song to change, google music does not do this
 2. Progress bar increases until it gets to correct location instead of jumping 
-3. Progress bar keeps moving when song is paused....
