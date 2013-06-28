@@ -12,7 +12,8 @@
   "content_scripts": [
     {
       "matches": ["https://play.google.com/music/*"],
-      "js": ["scripts/controls.js"]
+      "js": ["scripts/controls.js"],
+      "run_at": "document_end"
     }
   ],
   "permissions": [
