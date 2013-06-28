@@ -18,5 +18,9 @@
   ],
   "permissions": [
     "tabs", "https://play.google.com/music/*"
-  ]
+  ],
+  "background": {
+    "scripts": ["scripts/brains.js"],
+    "persistent": false
+  }
 }
