@@ -2,43 +2,152 @@ document.addEventListener('DOMContentLoaded', function () {
   setTitle("Meow All Day");
   setArtist("The Kittens");
   setAlbum("Becoming a Cat");
-  sendMessage();
+
+  registerButtonListeners();
+  updateCurrentSong();
 });
 
+function registerButtonListeners() {
+  $('#prev').click(function() {
+    prev();
+  });
+  $('#play').click(function() {
+    play();
+  });
+  $('#next').click(function() {
+    next();
+  });
+  $('#shuffle').click(function() {
+    shuffle();
+  });
+  $('#repeat').click(function() {
+    repeat();
+  });
+  $('#radio').click(function() {
+    radio();
+  });
+}
+
+// change to find the music tab insta
+var musicTab;
+function findMusicTab(callback) {
+  if (musicTab) {
+    return callback(musicTab);
+  }
+  chrome.tabs.query({url:'https://play.google.com/music/*'}, function(tabs) {
+    if (tabs.length > 0) {
+      musicTab = tabs[0];
+      return callback(musicTab);
+    }
+  });
+} 
+function sendMessage(msg, callback) {
+  findMusicTab(function(tab) {
+    console.log('tab',tab);
+    chrome.tabs.sendMessage(tab.id, msg, callback);
+  })
+}
+function sendAction(action, callback) {
+  sendMessage({action: action}, callback);
+}
+
+function updateCurrentSong() {
+  sendAction('getSongInfo', function(data) {
+    updateCurrentSongWithData(data);
+  });
+}
+function updateCurrentSongWithData(data) {
+  console.log(data);
+  if (data.status === 'playing') {
+    $('#play').attr('src','images/pause.png');
+  } else {
+    $('#play').attr('src','images/play.png');
+  }
+  setTitle(data.title);
+  setArtist(data.artist);
+  setAlbum(data.album);
+  setAlbumArt(data.album_art);
+  setProgress(data.progress, data.duration);
+}
+
+function prev() {
+  sendAction('prev', function(response) {
+    updateCurrentSongWithData(response);
+  });
+}
+
+function play() {
+  sendAction('play', function(response) {
+    updateCurrentSongWithData(response);
+  });
+}
+
+function next() {
+  sendAction('next', function(response) {
+    updateCurrentSongWithData(response);
+  });
+}
+
+function shuffle() {
+  sendAction('shuffle', function(response) {
+    updateCurrentSongWithData(response);
+  });
+}
+
+function repeat() {
+  sendAction('repeat', function(response) {
+    updateCurrentSongWithData(response);
+  });
+}
+
+function radio() {
+
+}
+
 function setArtist(artist) {
-  document.getElementById("artist").innerText = artist;
+  $("#artist").text(artist);
 }
 
 function setTitle(title) {
-  document.getElementById("title").innerText = title;
+  $("#title").text(title);
 }
 
 function setAlbum(album) {
-  document.getElementById("album").innerText = album;
+  $("#album").text(album);
 }
 
-function setAlbumArt(art) {
-  document.getElementById("album_art").src = art;
+function setAlbumArt(art, local) {
+  $("#album_art").attr('src',local?'':'https://'+art);
 }
 
-var port = chrome.runtime.connect({name: "knockknock"});
-port.postMessage({joke: "Knock knock"});
-port.onMessage.addListener(function(msg) {
-  if (msg.question == "Who's there?")
-    port.postMessage({answer: "Madame"});
-  else if (msg.question == "Madame who?")
-    port.postMessage({answer: "Madame... Bovary"});
-});
+var progressTimeoutID;
+var now;
+var end;
+function setProgress(progress, duration) {
+  clearTimeout(progressTimeoutID);
+  // set current progress
+  console.log(progress, '/', duration);
+  var progSplit = progress.split(':');
+  var durSplit = duration.split(':');
+  console.log(progSplit, '/', durSplit);
+  now = parseFloat(progSplit[0])*60+parseFloat(progSplit[1]);
+  end = parseFloat(durSplit[0]*60)+parseFloat(durSplit[1]);
+  console.log(now,'/',end);
+  var p = Math.round((now/end)*100);
+  $('#song_progress').attr('style', 'width: '+p+'%;');
 
-// chrome.runtime.onConnect.addListener(function(port) {
-//   // console.assert(port.name == "knockknock");
-//   port.onMessage.addListener(function(msg) {
-//     if (msg.joke == "Knock knock") {
-//       port.postMessage({question: "Who's there?"});
-//     } else if (msg.answer == "Madame") {
-//       port.postMessage({question: "Madame who?"});
-//     } else if (msg.answer == "Madame... Bovary") {
-//       port.postMessage({question: "I don't get it."});
-//     }
-//   });
-// });
+  // setup moving slider
+  progressTimeoutID = setTimeout(increaseProgress, 250);
+}
+
+function increaseProgress() {
+  if (now <= end) {
+    now+=0.25;
+    var p = (now/end)*100;
+    console.log(p);
+    $('#song_progress').attr('style', 'width: '+p+'%;');
+    progressTimeoutID = setTimeout(increaseProgress, 250);
+  } else {
+    updateCurrentSong();
+  }
+}

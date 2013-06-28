@@ -16,8 +16,13 @@
   padding-bottom: 0.25em;
 }
 
-#song_text {
+#song_info_spot {
   padding-left: 0.25em;
+}
+
+.song_text {
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 body {
