@@ -12,7 +12,7 @@
   "content_scripts": [
     {
       "matches": ["https://play.google.com/music/*"],
-      "js": ["scripts/controls.js"],
+      "js": ["scripts/music.js"],
       "run_at": "document_end"
     }
   ],
