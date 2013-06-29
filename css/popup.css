@@ -7,7 +7,16 @@
   width: 1.5em;
   height: 1.5em;
 }
-
+#song_progress {
+  background-color:orange;
+  height:20px;
+  border-radius: 2px;
+}
+#container {
+  background-color: black;
+  border-radius: 4px;
+  padding: 3px;
+}
 .control_table {
   width: 100%;
 }

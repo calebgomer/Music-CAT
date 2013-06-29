@@ -194,7 +194,9 @@ function setProgress(progress, duration) {
   end = parseFloat(durSplit[0]*60)+parseFloat(durSplit[1]);
   //console.log(now,'/',end);
   var p = Math.round((now/end)*100);
-  $('#song_progress').attr('style', 'width: '+p+'%;');
+  var progressBar = document.getElementById('song_progress');
+  progressBar.style.width=p+'%';
+  // /$('#song_progress').attr('style', 'width: '+p+'%;');
 
   // setup moving slider
   progressTimeoutID = setTimeout(increaseProgress, 250);
@@ -205,7 +207,8 @@ function increaseProgress() {
     now+=0.25;
     var p = (now/end)*100;
     //console.log(p);
-    $('#song_progress').attr('style', 'width: '+p+'%;');
+    var progressBar = document.getElementById('song_progress');
+    progressBar.style.width=p+'%';
     progressTimeoutID = setTimeout(increaseProgress, 250);
   } else {
     updateCurrentSong();
