@@ -1,22 +1,26 @@
-var paused;
 document.addEventListener('DOMContentLoaded', function () {
-  setTitle("Meow All Day");
-  setArtist("The Kittens");
-  setAlbum("Becoming a Cat");
+  setTitle("No Music Playing");
+  setArtist("");
+  setAlbum("");
+
+  // check for existing tab, else open one
 
   registerButtonListeners();
   updateCurrentSong();
 });
 
+var LEFT = 37;
+var SPACE = 32;
+var RIGHT = 39;
 document.onkeyup=function(e){
-	if(e.keyCode==37){
-		$('#prev').click();
+	if(e.keyCode===LEFT){
+		prev();
 	}
-	else if(e.keyCode==32){
-		$('#play').click();
+	else if(e.keyCode==SPACE){
+		play();
 	}
-	else if(e.keyCode==39){
-		$('#next').click();
+	else if(e.keyCode==RIGHT){
+		next();
 	}
 }
 
@@ -73,10 +77,9 @@ function updateCurrentSongWithData(data) {
   //console.log(data);
   if (data.status === 'playing') {
     $('#play').attr('src','images/pause.png');
-	paused=false;
   } else {
+    clearTimeout(progressTimeoutID);
     $('#play').attr('src','images/play.png');
-	paused = true;
   }
   setTitle(data.title);
   setArtist(data.artist);
@@ -116,7 +119,9 @@ function repeat() {
 }
 
 function radio() {
-
+  sendAction('radio', function(response) {
+    updateCurrentSongWithData(response);
+  });
 }
 
 function setArtist(artist) {
@@ -156,7 +161,7 @@ function setProgress(progress, duration) {
 }
 
 function increaseProgress() {
-  if (now <= end && !paused ) {
+  if (now <= end) {
     now+=0.25;
     var p = (now/end)*100;
     //console.log(p);
