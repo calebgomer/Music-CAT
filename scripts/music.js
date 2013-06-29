@@ -31,6 +31,10 @@ chrome.runtime.onMessage.addListener(function(req, sender, res) {
     case 'radio':
       update(res);
       break;
+    case 'thumbUp':
+      pressThumb('Thumbs up');
+      update(res);
+      break;
 
     // just asking for song info
     case 'getSongInfo':
@@ -42,6 +46,12 @@ chrome.runtime.onMessage.addListener(function(req, sender, res) {
 
 function press(button, callback) {
   $("button[data-id='"+button+"']").click();
+}
+
+function pressThumb(button) {
+    var dummy = $("li[title='"+button+"']");
+    console.log(dummy);
+    $("li[title='"+button+"']").click();
 }
 
 function update(callback) {
