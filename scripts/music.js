@@ -54,7 +54,7 @@ function update(callback) {
     album_art: $('#playingAlbumArt').attr('src'),
     progress: $('#time_container_current').text(),
     duration: $('#time_container_duration').text(),
-    shufStatus: $("button[data-id='shuffle']").attr('value'),
+    shuffleStatus: $("button[data-id='shuffle']").attr('value'),
     repeatStatus: $("button[data-id='repeat']").attr('value')
   });
 }
