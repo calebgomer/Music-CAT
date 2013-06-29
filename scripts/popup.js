@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setArtist("");
   setAlbum("");
 
-  // check for existing tab, else open one
+  
 
   registerButtonListeners();
   updateCurrentSong();
@@ -80,6 +80,18 @@ function updateCurrentSongWithData(data) {
   } else {
     clearTimeout(progressTimeoutID);
     $('#play').attr('src','images/play.png');
+  }
+  if (data.shuffleStatus === 'ALL_SHUFFLE') {
+    $('#shuffle').attr('src','images/shuffleOn.png');
+  } else {
+    $('#shuffle').attr('src','images/shuffle.png');
+  }
+  if (data.repeatStatus === 'NO_REPEAT') {
+    $('#repeat').attr('src','images/repeat.png');
+  } else if (data.repeatStatus === 'LIST_REPEAT') {
+    $('#repeat').attr('src','images/repeatList.png');
+  } else if (data.repeatStatus === 'SINGLE_REPEAT') {
+    $('#repeat').attr('src','images/repeatOne.png');
   }
   setTitle(data.title);
   setArtist(data.artist);
