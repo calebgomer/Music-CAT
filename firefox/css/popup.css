@@ -1,0 +1,60 @@
+.large_control {
+  width: 2em;
+  height: 2em;
+}
+
+.small_control {
+  width: 1.5em;
+  height: 1.5em;
+}
+#song_progress {
+  background-color:orange;
+  height:20px;
+  border-radius: 2px;
+}
+#container {
+  background-color: black;
+  border-radius: 4px;
+  padding: 3px;
+}
+.control_table {
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.time {
+  vertical-align: bottom;
+}
+
+#song_info {
+  margin-bottom: 0.5em;
+}
+
+#song_info_spot {
+  padding-left: 0.25em;
+}
+
+#song_text {
+  padding-left: 0.25em;
+}
+
+body {
+  max-width: 30em;
+  min-width: 20em;
+  max-height: 15em;
+  overflow-x: hidden;
+  padding: 0.5em;
+  -webkit-border-radius: 100px;
+}
+
+.album_art {
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+
+  vertical-align: middle;
+  min-width: 75px;
+  width: 75px;
+  min-height: 75px;
+  height: 75px;
+}

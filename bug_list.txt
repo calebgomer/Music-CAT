@@ -1,1 +1,0 @@
-1.Progress bar increases until it gets to correct location instead of jumping 
