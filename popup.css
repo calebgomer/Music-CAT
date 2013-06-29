@@ -18,11 +18,15 @@
 
 #song_info_spot {
   padding-left: 0.25em;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 20em;
 }
 
 .song_text {
-  white-space: nowrap;
+  white-space: pre;
   overflow: hidden;
+  max-height: 1em;
 }
 
 body {
