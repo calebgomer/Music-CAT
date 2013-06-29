@@ -54,7 +54,8 @@ function update(callback) {
     progress: $('#time_container_current').text(),
     duration: $('#time_container_duration').text(),
     shuffleStatus: $("button[data-id='shuffle']").attr('value'),
-    repeatStatus: $("button[data-id='repeat']").attr('value')
+    repeatStatus: $("button[data-id='repeat']").attr('value'),
+    thumbsUpStatus: $("li[title='Thumbs up']").attr('class')
   });
 }
 
