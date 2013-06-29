@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Extension for Google Play Music",
-  "description": "Adds easy dropdown controls and keyboard shortcuts to Google Play Music.",
+  "name": "Extension for Google Play Music™",
+  "description": "Adds easy controls and keyboard shortcuts to Google Play Music from any tab.",
   "version": "0.5",
 
   "browser_action": {
