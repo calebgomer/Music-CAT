@@ -98,6 +98,7 @@ function updateCurrentSong() {
   });
 }
 function updateCurrentSongWithData(data) {
+  console.log(data);
   if (data.status === 'playing') {
     $('#play').attr('src','images/pause.png');
   } else {
@@ -215,23 +216,26 @@ function setProgress(progress, duration, playing) {
   progressBar.style.width=p+'%';
   
   if (playing)
-    progressTimeoutID = setTimeout(increaseProgress, 250);
+    progressTimeoutID = setTimeout(updateCurrentSong, 750);
 }
 
 function increaseProgress() {
-  if ((now*100)%100 == 0) {
+  //   console.log('***MEOW***',parseInt(now*100)%100);
+  // if (parseInt(now*100)%100 == 0) {
     updateCurrentSong();
-  } else if (now <= end) {
-    now+=0.25;
-    var p = (now/end)*100;
-    $('#current_time').text(Math.floor(now/60)+':'+pad(Math.floor(now%60),2));
-    var progressBar = document.getElementById('song_progress');
-    progressBar.style.width=p+'%';
-    if (progressTimeoutID)
-      progressTimeoutID = setTimeout(increaseProgress, 250);
-  } else {
-    updateCurrentSong();
-  }
+  //   now+=0.25;
+  // } else if (now <= end) {
+  //   console.log('///MEOW///',now);
+  //   now+=0.25;
+  //   var p = (now/end)*100;
+  //   $('#current_time').text(Math.floor(now/60)+':'+pad(Math.floor(now%60),2));
+  //   var progressBar = document.getElementById('song_progress');
+  //   progressBar.style.width=p+'%';
+  //   if (progressTimeoutID)
+  //     progressTimeoutID = setTimeout(increaseProgress, 250);
+  // } else {
+  //   updateCurrentSong();
+  // }
 }
 
 // **warning** non-intuitive code below
