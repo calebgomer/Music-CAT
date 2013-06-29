@@ -19,10 +19,19 @@
 }
 .control_table {
   width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.time {
+  vertical-align: bottom;
 }
 
 #song_info {
-  padding-bottom: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+#song_info_spot {
+  padding-left: 0.25em;
 }
 
 #song_text {
@@ -35,6 +44,7 @@ body {
   max-height: 15em;
   overflow-x: hidden;
   padding: 0.5em;
+  -webkit-border-radius: 100px;
 }
 
 .album_art {

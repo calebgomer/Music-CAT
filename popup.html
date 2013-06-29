@@ -33,29 +33,23 @@
         <td align="right">
           <img class="large_control" id="shuffle" src="images/shuffle.png">
           <img class="large_control" id="repeat" src="images/repeat.png">
-	  <img class="large_control" id="thumbsUp" src="images/thumbUpOff.png">
-	  <img class="large_control" id="thumbsDown" src="images/thumbDownOff.png">
-          <!-- <img class="large_control" id="radio" src="images/radio.png">
-          <img class="large_control" id="queue" src="images/queue.png"> -->
+          <img class="small_control" id="thumbsUp" src="images/thumbUpOff.png">
+          <img class="small_control" id="thumbsDown" src="images/thumbDownOff.png">
         </td>
       </tr>
     </table>
-    <!--<div class="progress progress-warning">
-      <div id="song_progress" class="bar" style="width: 0%;"></div>
-      <div align="right" class="pull_right">0:22</div>
-    </div>-->
     <div class="row-fluid">
       <div class="span2">
-        <div>10:00</div>
+        <div align="right" class="time" id="current_time"></div>
       </div>
       <div class="span8">
         <div id="container">
-          <div id="song_progress" style="width:50%;/* height:25px; background-color:#f00*/">
+          <div id="song_progress" style="width:00%;/* height:25px; background-color:#f00*/">
           </div>
         </div>
       </div>
       <div class="span2">
-        <div>0:22</div>
+        <div align="left" class="time" id="total_time"></div>
       </div>
     </div>
   </body>

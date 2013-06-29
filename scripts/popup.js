@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   setTitle("No Music Playing");
-  setArtist("");
+  setArtist("You should play a song");
   setAlbum("");
 
   
@@ -12,16 +12,30 @@ document.addEventListener('DOMContentLoaded', function () {
 var LEFT = 37;
 var SPACE = 32;
 var RIGHT = 39;
+var UP = 38;
+var DOWN = 40;
 document.onkeyup=function(e){
-	if(e.keyCode===LEFT){
-		prev();
-	}
-	else if(e.keyCode==SPACE){
-		play();
-	}
-	else if(e.keyCode==RIGHT){
-		next();
-	}
+  switch(e.keyCode) {
+    case LEFT:
+      prev();
+      break;
+
+    case RIGHT:
+      next();
+      break;
+
+    case SPACE:
+      play();
+      break;
+
+    case UP:
+      thumbsUp();
+      break;
+
+    case DOWN:
+      thumbsDown();
+      break;
+  }
 }
 
 function registerButtonListeners() {
@@ -44,10 +58,10 @@ function registerButtonListeners() {
     radio();
   });
   $('#thumbsUp').click(function(){
-    thumbUp();
+    thumbsUp();
   });
   $('#thumbsDown').click(function(){
-      thumbDown();
+      thumbsDown();
   });
 }
 
@@ -61,6 +75,11 @@ function findMusicTab(callback) {
     if (tabs.length > 0) {
       musicTab = tabs[0];
       return callback(musicTab);
+    } else {
+      chrome.tabs.create({'url': 'https://play.google.com/music/listen#now'}, function(tab) {
+        musicTab = tab;
+        return callback(musicTab);
+      });
     }
   });
 } 
@@ -84,7 +103,6 @@ function updateCurrentSongWithData(data) {
   if (data.status === 'playing') {
     $('#play').attr('src','images/pause.png');
   } else {
-    clearTimeout(progressTimeoutID);
     $('#play').attr('src','images/play.png');
   }
   if (data.shuffleStatus === 'ALL_SHUFFLE') {
@@ -113,7 +131,7 @@ function updateCurrentSongWithData(data) {
   setArtist(data.artist);
   setAlbum(data.album);
   setAlbumArt(data.album_art);
-  setProgress(data.progress, data.duration);
+  setProgress(data.progress, data.duration, data.status === 'playing');
 }
 
 function prev() {
@@ -152,14 +170,14 @@ function radio() {
   });
 }
 
-function thumbUp() {
+function thumbsUp() {
   sendAction('thumbUp', function(response){
       updateCurrentSongWithData(response);
   });
 }
 
 
-function thumbDown() {
+function thumbsDown() {
   sendAction('thumbDown', function(response){
       updateCurrentSongWithData(response);
   });
@@ -183,7 +201,7 @@ function setAlbumArt(art, local) {
 var progressTimeoutID;
 var now;
 var end;
-function setProgress(progress, duration) {
+function setProgress(progress, duration, playing) {
   clearTimeout(progressTimeoutID);
   // set current progress
   //console.log(progress, '/', duration);
@@ -197,20 +215,33 @@ function setProgress(progress, duration) {
   var progressBar = document.getElementById('song_progress');
   progressBar.style.width=p+'%';
   // /$('#song_progress').attr('style', 'width: '+p+'%;');
-
+  $('#current_time').text(Math.floor(now/60)+':'+pad(Math.floor(now%60),2));
+  $('#total_time').text(Math.floor(end/60)+':'+pad(Math.floor(end%60),2));
   // setup moving slider
-  progressTimeoutID = setTimeout(increaseProgress, 250);
+  if (playing)
+    progressTimeoutID = setTimeout(increaseProgress, 250);
 }
 
 function increaseProgress() {
   if (now <= end) {
     now+=0.25;
     var p = (now/end)*100;
-    //console.log(p);
+    $('#current_time').text(Math.floor(now/60)+':'+pad(Math.floor(now%60),2));
     var progressBar = document.getElementById('song_progress');
     progressBar.style.width=p+'%';
-    progressTimeoutID = setTimeout(increaseProgress, 250);
+    if (progressTimeoutID)
+      progressTimeoutID = setTimeout(increaseProgress, 250);
   } else {
     updateCurrentSong();
   }
 }
+
+// **warning** non-intuitive code below
+function pad(num, size) {
+  var s = num.toString();
+  while(s.length < size) {
+    s = "0"+s;
+  }
+  return s;
+}
+// **end-warning** non-intuitive code ended
