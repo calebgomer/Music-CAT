@@ -3,7 +3,7 @@
 
   "name": "Extension for Google Play Music",
   "description": "Adds easy dropdown controls and keyboard shortcuts to Google Play Music.",
-  "version": "1.0",
+  "version": "0.5",
 
   "browser_action": {
     "default_icon": "images/icon.png",

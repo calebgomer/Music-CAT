@@ -85,7 +85,6 @@ function findMusicTab(callback) {
 } 
 function sendMessage(msg, callback) {
   findMusicTab(function(tab) {
-    //console.log('tab',tab);
     chrome.tabs.sendMessage(tab.id, msg, callback);
   })
 }
@@ -99,7 +98,6 @@ function updateCurrentSong() {
   });
 }
 function updateCurrentSongWithData(data) {
-  //console.log(data);
   if (data.status === 'playing') {
     $('#play').attr('src','images/pause.png');
   } else {
@@ -203,27 +201,27 @@ var now;
 var end;
 function setProgress(progress, duration, playing) {
   clearTimeout(progressTimeoutID);
-  // set current progress
-  //console.log(progress, '/', duration);
+  $('#current_time').text(progress);
+  $('#total_time').text(duration);
+  
   var progSplit = progress.split(':');
   var durSplit = duration.split(':');
   console.log(progSplit, '/', durSplit);
   now = parseFloat(progSplit[0])*60+parseFloat(progSplit[1]);
   end = parseFloat(durSplit[0]*60)+parseFloat(durSplit[1]);
-  //console.log(now,'/',end);
+  
   var p = Math.round((now/end)*100);
   var progressBar = document.getElementById('song_progress');
   progressBar.style.width=p+'%';
-  // /$('#song_progress').attr('style', 'width: '+p+'%;');
-  $('#current_time').text(Math.floor(now/60)+':'+pad(Math.floor(now%60),2));
-  $('#total_time').text(Math.floor(end/60)+':'+pad(Math.floor(end%60),2));
-  // setup moving slider
+  
   if (playing)
     progressTimeoutID = setTimeout(increaseProgress, 250);
 }
 
 function increaseProgress() {
-  if (now <= end) {
+  if ((now*100)%100 == 0) {
+    updateCurrentSong();
+  } else if (now <= end) {
     now+=0.25;
     var p = (now/end)*100;
     $('#current_time').text(Math.floor(now/60)+':'+pad(Math.floor(now%60),2));
