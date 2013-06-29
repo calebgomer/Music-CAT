@@ -8,6 +8,18 @@ document.addEventListener('DOMContentLoaded', function () {
   updateCurrentSong();
 });
 
+document.onkeyup=function(e){
+	if(e.keyCode==37){
+		$('#prev').click();
+	}
+	else if(e.keyCode==32){
+		$('#play').click();
+	}
+	else if(e.keyCode==39){
+		$('#next').click();
+	}
+}
+
 function registerButtonListeners() {
   $('#prev').click(function() {
     prev();
@@ -44,7 +56,7 @@ function findMusicTab(callback) {
 } 
 function sendMessage(msg, callback) {
   findMusicTab(function(tab) {
-    console.log('tab',tab);
+    //console.log('tab',tab);
     chrome.tabs.sendMessage(tab.id, msg, callback);
   })
 }
@@ -58,7 +70,7 @@ function updateCurrentSong() {
   });
 }
 function updateCurrentSongWithData(data) {
-  console.log(data);
+  //console.log(data);
   if (data.status === 'playing') {
     $('#play').attr('src','images/pause.png');
 	paused=false;
@@ -129,13 +141,13 @@ var end;
 function setProgress(progress, duration) {
   clearTimeout(progressTimeoutID);
   // set current progress
-  console.log(progress, '/', duration);
+  //console.log(progress, '/', duration);
   var progSplit = progress.split(':');
   var durSplit = duration.split(':');
   console.log(progSplit, '/', durSplit);
   now = parseFloat(progSplit[0])*60+parseFloat(progSplit[1]);
   end = parseFloat(durSplit[0]*60)+parseFloat(durSplit[1]);
-  console.log(now,'/',end);
+  //console.log(now,'/',end);
   var p = Math.round((now/end)*100);
   $('#song_progress').attr('style', 'width: '+p+'%;');
 
@@ -147,7 +159,7 @@ function increaseProgress() {
   if (now <= end && !paused ) {
     now+=0.25;
     var p = (now/end)*100;
-    console.log(p);
+    //console.log(p);
     $('#song_progress').attr('style', 'width: '+p+'%;');
     progressTimeoutID = setTimeout(increaseProgress, 250);
   } else {
