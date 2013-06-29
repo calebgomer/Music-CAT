@@ -64,3 +64,10 @@ function update(callback) {
     duration: $('#time_container_duration').text()
   });
 }
+
+function triggerMouseEvent(element, eventname){
+    var event = document.createEvent('MouseEvents');
+    event.initMouseEvent(eventname, true, true, document.defaultVi    ew, 1, 0, 0, 0, 0, false, false, false, false, 0, element);
+    element.dispatchEvent(event);
+}
+
