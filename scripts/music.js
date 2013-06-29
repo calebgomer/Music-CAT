@@ -29,8 +29,7 @@ chrome.runtime.onMessage.addListener(function(req, sender, res) {
       break;
 
     case 'radio':
-      // press radio button
-      // no clue what happens next
+      update(res);
       break;
 
     // just asking for song info
@@ -61,7 +60,7 @@ function update(callback) {
 
 function triggerMouseEvent(element, eventname){
     var event = document.createEvent('MouseEvents');
-    event.initMouseEvent(eventname, true, true, document.defaultVi    ew, 1, 0, 0, 0, 0, false, false, false, false, 0, element);
+    event.initMouseEvent(eventname, true, true, document.defaultView, 1, 0, 0, 0, 0, false, false, false, false, 0, element);
     element.dispatchEvent(event);
 }
 
