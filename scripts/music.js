@@ -36,6 +36,10 @@ chrome.runtime.onMessage.addListener(function(req, sender, res) {
       update(res);
       break;
 
+    case 'thumbDown':
+      pressThumb('Thumbs down');
+      update(res);
+      break;
     // just asking for song info
     case 'getSongInfo':
       // send res current song info/status/progress/etc.
@@ -65,7 +69,8 @@ function update(callback) {
     duration: $('#time_container_duration').text(),
     shuffleStatus: $("button[data-id='shuffle']").attr('value'),
     repeatStatus: $("button[data-id='repeat']").attr('value'),
-    thumbsUpStatus: $("li[title='Thumbs up']").attr('class')
+    thumbsUpStatus: $("li[title='Thumbs up']").attr('class'),
+    thumbsDownStatus: $("li[title='Thumbs down']").attr('class')
   });
 }
 

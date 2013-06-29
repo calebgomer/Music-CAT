@@ -46,6 +46,9 @@ function registerButtonListeners() {
   $('#thumbsUp').click(function(){
     thumbUp();
   });
+  $('#thumbsDown').click(function(){
+      thumbDown();
+  });
 }
 
 // change to find the music tab insta
@@ -101,6 +104,11 @@ function updateCurrentSongWithData(data) {
   } else {
       $('#thumbsUp').attr('src','images/thumbUpOff.png');
   }
+  if(data.thumbsDownStatus === 'selected') {
+      $('#thumbsDown').attr('src','images/thumbDownOn.png');
+  } else {
+      $('#thumbsDown').attr('src','images/thumbDownOff.png');
+  }
   setTitle(data.title);
   setArtist(data.artist);
   setAlbum(data.album);
@@ -150,6 +158,12 @@ function thumbUp() {
   });
 }
 
+
+function thumbDown() {
+  sendAction('thumbDown', function(response){
+      updateCurrentSongWithData(response);
+  });
+}
 function setArtist(artist) {
   $("#artist").text(artist);
 }
