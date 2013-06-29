@@ -36,15 +36,7 @@ chrome.runtime.onMessage.addListener(function(req, sender, res) {
     // just asking for song info
     case 'getSongInfo':
       // send res current song info/status/progress/etc.
-      res({
-        status: $("button[data-id='play-pause']").attr('title') === 'Play' ? 'paused' : 'playing',
-        title: $('#playerSongTitle').text(),
-        artist: $('#player-artist').text(),
-        album: $('.player-album')[0].innerText,
-        album_art: $('#playingAlbumArt').attr('src'),
-        progress: $('#time_container_current').text(),
-        duration: $('#time_container_duration').text()
-      });
+      update(res);
       break;
   }
 });
@@ -61,7 +53,9 @@ function update(callback) {
     album: $('.player-album')[0].innerText,
     album_art: $('#playingAlbumArt').attr('src'),
     progress: $('#time_container_current').text(),
-    duration: $('#time_container_duration').text()
+    duration: $('#time_container_duration').text(),
+    shufStatus: $("button[data-id='shuffle']").attr('value'),
+    repeatStatus: $("button[data-id='repeat']").attr('value')
   });
 }
 
