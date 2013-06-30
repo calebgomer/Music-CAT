@@ -62,7 +62,7 @@ function registerButtonListeners() {
   });
 }
 
-// change to find the music tab insta
+//***Edit for Firefox***
 var musicTab;
 function findMusicTab(callback) {
   if (musicTab) {
@@ -80,20 +80,23 @@ function findMusicTab(callback) {
     }
   });
 } 
+//***Edit for Firefox***
 function sendMessage(msg, callback) {
   findMusicTab(function(tab) {
     chrome.tabs.sendMessage(tab.id, msg, callback);
   })
 }
+//***Edit for Firefox***
 function sendAction(action, callback) {
   sendMessage({action: action}, callback);
 }
-
+//***Edit for Firefox***
 function updateCurrentSong() {
   sendAction('getSongInfo', function(data) {
     updateCurrentSongWithData(data);
   });
 }
+//***Edit for Firefox***
 function updateCurrentSongWithData(data) {
   console.log(data);
   if (data.status === 'playing') {
