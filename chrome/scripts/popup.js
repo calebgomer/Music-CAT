@@ -2,8 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setTitle("No Music Playing");
   setArtist("You should play a song");
   setAlbum("");
-
-  
+  setProgress("0:00","0:00");
 
   registerButtonListeners();
   updateCurrentSong();
@@ -54,14 +53,11 @@ function registerButtonListeners() {
   $('#repeat').click(function() {
     repeat();
   });
-  $('#radio').click(function() {
-    radio();
-  });
   $('#thumbsUp').click(function(){
     thumbsUp();
   });
   $('#thumbsDown').click(function(){
-      thumbsDown();
+    thumbsDown();
   });
 }
 
@@ -98,12 +94,16 @@ function updateCurrentSong() {
   });
 }
 function updateCurrentSongWithData(data) {
-  console.log(data);
+  if (!data) {
+    return;
+  }
+  // console.log(data);
   if (data.status === 'playing') {
     $('#play').attr('src','images/pause.png');
   } else {
     $('#play').attr('src','images/play.png');
   }
+  // console.log(data.shuffleStatus);
   if (data.shuffleStatus === 'ALL_SHUFFLE') {
     $('#shuffle').attr('src','images/shuffleOn.png');
   } else {
@@ -117,14 +117,14 @@ function updateCurrentSongWithData(data) {
     $('#repeat').attr('src','images/repeatOne.png');
   }
   if(data.thumbsUpStatus === 'selected') {
-      $('#thumbsUp').attr('src','images/thumbUpOn.png');
+      $('#thumbsUp').attr('src','images/positiveOn.png');
   } else {
-      $('#thumbsUp').attr('src','images/thumbUpOff.png');
+      $('#thumbsUp').attr('src','images/positive.png');
   }
   if(data.thumbsDownStatus === 'selected') {
-      $('#thumbsDown').attr('src','images/thumbDownOn.png');
+      $('#thumbsDown').attr('src','images/negativeOn.png');
   } else {
-      $('#thumbsDown').attr('src','images/thumbDownOff.png');
+      $('#thumbsDown').attr('src','images/negative.png');
   }
   setTitle(data.title);
   setArtist(data.artist);
@@ -207,35 +207,17 @@ function setProgress(progress, duration, playing) {
   
   var progSplit = progress.split(':');
   var durSplit = duration.split(':');
-  console.log(progSplit, '/', durSplit);
+  // console.log(progSplit, '/', durSplit);
   now = parseFloat(progSplit[0])*60+parseFloat(progSplit[1]);
   end = parseFloat(durSplit[0]*60)+parseFloat(durSplit[1]);
   
   var p = Math.round((now/end)*100);
   var progressBar = document.getElementById('song_progress');
   progressBar.style.width=p+'%';
-  
+  var currentTime = document.getElementById('current_time');
+  // currentTime.style.left=((p/100)*160)+'px';
   if (playing)
-    progressTimeoutID = setTimeout(updateCurrentSong, 750);
-}
-
-function increaseProgress() {
-  //   console.log('***MEOW***',parseInt(now*100)%100);
-  // if (parseInt(now*100)%100 == 0) {
-    updateCurrentSong();
-  //   now+=0.25;
-  // } else if (now <= end) {
-  //   console.log('///MEOW///',now);
-  //   now+=0.25;
-  //   var p = (now/end)*100;
-  //   $('#current_time').text(Math.floor(now/60)+':'+pad(Math.floor(now%60),2));
-  //   var progressBar = document.getElementById('song_progress');
-  //   progressBar.style.width=p+'%';
-  //   if (progressTimeoutID)
-  //     progressTimeoutID = setTimeout(increaseProgress, 250);
-  // } else {
-  //   updateCurrentSong();
-  // }
+    progressTimeoutID = setTimeout(updateCurrentSong, 500);
 }
 
 // **warning** non-intuitive code below

@@ -1,5 +1,4 @@
 chrome.runtime.onMessage.addListener(function(req, sender, res) {
-  console.log(req.action);
   switch(req.action) {
 
     case 'prev':
@@ -54,7 +53,6 @@ function press(button, callback) {
 
 function pressThumb(button) {
     var dummy = $("li[title='"+button+"']");
-    console.log(dummy);
     $("li[title='"+button+"']").click();
 }
 
