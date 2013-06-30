@@ -2,9 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
   setTitle("No Music Playing");
   setArtist("You should play a song");
   setAlbum("");
-
-  
-
   registerButtonListeners();
   updateCurrentSong();
 });

@@ -13,7 +13,7 @@
   border-radius: 2px;
 }
 #container {
-  background-color: black;
+  background-color: orange;
   border-radius: 4px;
   padding: 3px;
 }
@@ -39,17 +39,15 @@
 }
 
 body {
-  max-width: 30em;
-  min-width: 20em;
-  max-height: 15em;
+  width: 30em;
+  height: 15em;
   overflow-x: hidden;
   padding: 0.5em;
-  -webkit-border-radius: 100px;
+
 }
 
 .album_art {
   -moz-border-radius: 0.25em;
-  -webkit-border-radius: 0.25em;
   border-radius: 0.25em;
 
   vertical-align: middle;
