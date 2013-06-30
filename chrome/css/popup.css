@@ -10,6 +10,10 @@
   height: 2em;
 }
 
+.left_controls a:hover{
+  color:green;
+}
+
 .right_controls {
   margin: 0px;
   padding: 0px;

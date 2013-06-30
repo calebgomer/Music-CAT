@@ -1,9 +1,9 @@
 {
-  "name": "extension",
-  "fullName": "extension",
+  "name": "mcat",
+  "fullName": "Music Control from All Tabs",
   "id": "jid1-73BbvMcUZ7JeTg",
-  "description": "a basic add-on",
-  "author": "",
+  "description": "Allows you to control Google Music from any tab",
+  "author": "Krazy Kitten Inc",
   "license": "MPL 2.0",
-  "version": "0.1"
+  "version": "0.6"
 }

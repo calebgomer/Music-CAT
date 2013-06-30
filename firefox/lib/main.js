@@ -1,48 +1,63 @@
-// var widgets = require("sdk/widget");
-// var tabs = require("sdk/tabs");
- 
-// var widget = widgets.Widget({
-//   id: "mozilla-link",
-//   label: "Mozilla website",
-//   contentURL: "http://www.mozilla.org/favicon.ico",
-//   onClick: function() {
-//     tabs.open("http://www.mozilla.org/");
-//   }
+// Imports the requirements
+var self = require("sdk/self");
+var widgets = require("sdk/widget");
+var panels = require("sdk/panel");
+var tabs = require("sdk/tabs");
+var self = require("sdk/self");
 
-var data = require("sdk/self").data;
- 
-// Construct a panel, loading its content from the "text-entry.html"
-// file in the "data" directory, and loading the "get-text.js" script
-// into it.
-var text_entry = require("sdk/panel").Panel({
-  width: 320,
+// Construct a panel
+// This panel will be where the music controls are located
+var controls = panels.Panel({
+  width: 350,
   height: 160,
-  contentURL: data.url("popup.html"),
-  // contentScriptFile: data.url("get-text.js")
+  contentURL: [self.data.url("popup.html"),
+  			   "https://play.google.com/music/listen#/"],
+  contentScriptFile: [self.data.url("scripts/jquery.js"),
+                      self.data.url("scripts/popup.js")]
 });
  
-// Create a widget, and attach the panel to it, so the panel is
-// shown when the user clicks the widget.
-var widget = require("sdk/widget").Widget({
-  label: "Text entry",
-  id: "text-entry",
-  contentURL: "http://www.mozilla.org/favicon.ico",
-  panel: text_entry
+// Create a widget, and attach the panel to it
+// This what will be seen on the addon bar
+var widget = widgets.Widget({
+  label: "Music Controls",
+  id: "music-control",
+  contentURL: data.url("images/icon.ico"),
+  panel: controls
 });
+
+var playKey = Hotkey({
+  combo: "control-shift-space",
+  onPress: function() {
+    Keyboard("playPause");
+}
+});
+
+var prevKey = Hotkey({
+combo: "control-shift--left",
+onPress: function() {
+  KeyBoard("prevSong");
+}
+});
+
+var nextKey = Hotkey({
+combo: "control-shift--right",
+onPress: function() {
+  gMusicAction("nextSong");
+}
+});
+var gMusicAction = function(act) {
+console.log(act);
+var gmusictab = 'https?\:\/\/music\.google\.com\/music\/listen.*';
+for each (var tab in tabs)
+  if (tab.url.match(gmusictab)) {
+    console.log("location.assign('javascript:SJBpost(\"" + act + "\");void 0');");
+    tab.attach({
+      contentScript: "location.assign('javascript:SJBpost(\"" + act + "\");void 0');self.postMessage(document.getElementById(\"playPause\").title);",
+                      
+                      onMessage: function (message) {                              
+                        if(message == 'Pause'){updateWidgetPP('play');}else{updateWidgetPP('pause');}
+                      }
+      });
+  }
+};
  
-// When the panel is displayed it generated an event called
-// "show": we will listen for that event and when it happens,
-// send our own "show" event to the panel's script, so the
-// script can prepare the panel for display.
-text_entry.on("show", function() {
-  text_entry.port.emit("show");
-});
- 
-// Listen for messages called "text-entered" coming from
-// the content script. The message payload is the text the user
-// entered.
-// In this implementation we'll just log the text to the console.
-text_entry.port.on("text-entered", function (text) {
-  console.log(text);
-  text_entry.hide();
-});
