@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Extension for Google Play Music™",
-  "description": "Adds easy controls and keyboard shortcuts to Google Play Music from any tab.",
-  "version": "0.6",
+  "name": "Music CAT for Google Play Music™",
+  "description": "Music Control from All Tabs let's you access your Google Play Music from any tab and with your keyboard.",
+  "version": "1.0",
 
   "browser_action": {
     "default_icon": "images/icon128.png",

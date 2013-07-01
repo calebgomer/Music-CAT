@@ -10,10 +10,6 @@
   height: 2em;
 }
 
-.left_controls a:hover{
-  color:green;
-}
-
 .right_controls {
   margin: 0px;
   padding: 0px;
@@ -32,16 +28,44 @@
   vertical-align: middle;
 }
 
+.play_large_control:hover{
+  background-color:orange;
+}
+
+.prev_large_control:hover{
+  background-color:orange;
+}
+
+.next_large_control:hover{
+  background-color:orange;
+}
+
 .medium_control {
   width: 1.8em;
   height: 1.8em;
   vertical-align: middle;
 }
 
+.shuffle_medium_control:hover{
+  background-color:orange;
+}
+
+.repeat_medium_control:hover{
+  background-color:orange;
+}
+
 .small_control {
   width: 1.4em;
   height: 1.4em;
   vertical-align: middle;
+}
+
+.thumbsUp_small_control:hover{
+  background-color:orange;
+}
+
+.thumbsDown_small_control:hover{
+  background-color:orange;
 }
 .progress_container {
   width: 100%;
@@ -86,7 +110,6 @@
 #song_info_spot {
   overflow:hidden;
   white-space:nowrap;
-  max-width:14em;
   padding-left: 0.4em;
   position: absolute;
   top: 0px;
