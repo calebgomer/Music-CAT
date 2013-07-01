@@ -1,6 +1,10 @@
 var IS_NOTIFICATION = 0;
 
 document.addEventListener('DOMContentLoaded', function () {
+  contentLoaded();
+});
+
+function contentLoaded(){
   setTitle("No Music Playing");
   setArtist("You should play a song");
   setAlbum("");
@@ -9,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   registerButtonListeners();
   updateCurrentSong();
   console.log("DOM CONTENT LOADED");
-});
+}
 
 var LEFT = 37;
 var SPACE = 32;
@@ -62,6 +66,9 @@ function registerButtonListeners() {
   $('#thumbsDown').click(function(){
     thumbsDown();
   });
+  $('#settings').click(function(){
+    openSettings();
+  })
 }
 
 // change to find the music tab insta
@@ -82,6 +89,20 @@ function findMusicTab(callback) {
     }
   });
 } 
+function openSettings(){
+  $('body').load("options.html",function(){
+    console.log("RETURN BUTTON",$('#return'));
+    $('#return').click(function(){
+      openMain();
+    });
+  });
+}
+function openMain(){
+  console.log("OPEN MAIN");
+  $('body').load("popup.html",function(){
+    contentLoaded();
+  });
+}
 function sendMessage(msg, callback) {
   findMusicTab(function(tab) {
     chrome.tabs.sendMessage(tab.id, msg, callback);
