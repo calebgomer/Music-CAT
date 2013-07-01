@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   registerButtonListeners();
   updateCurrentSong();
+  console.log("DOM CONTENT LOADED");
 });
 
 var LEFT = 37;
