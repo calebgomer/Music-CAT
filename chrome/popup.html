@@ -2,55 +2,55 @@
 <html>
 <head>
   <title>Music</title>
-    <link rel='stylesheet' href='css/popup.css' type='text/css'/>
-    <script src="scripts/jquery.js"></script> 
-    <script src="scripts/popup.js"></script>
-  </head>
-  <body>
-    <table id="song_info">
-      <tr>
-        <td>
-          <div class="album_container">
-            <img id="album_art" class="album_art" src="images/album.gif"/>
-          </div>
-        </td>
-        <td>
-          <div id="song_info_spot">
-            <b id="title" class="song_text">No Music Playing</b>
-            <div id="artist" class="song_text">You Should Play a Song</div>
-            <div id="album" class="song_text"></div>
-          </div>
-        </td>
-      </tr>
-    </table>
-    <div class="progress_container">
-      <div class="time_text">
-        <div class="box current_time" id="current_time">0:00</div>
-        <div class="box space_time">
-          <table class="control_table">
-            <tr>
-              <td align="center">
-                <img class="large_control" id="prev" src="images/prev.png">
-                <img class="large_control" id="play" src="images/play.png">
-                <img class="large_control" id="next" src="images/next.png">
-              </td>
-            </tr>
-          </table>
+  <link rel='stylesheet' href='css/popup.css' type='text/css'/>
+  <script src="scripts/jquery.js"></script> 
+  <script src="scripts/popup.js"></script>
+</head>
+<body>
+  <table id="song_info">
+    <tr>
+      <td>
+        <div class="album_container">
+          <img id="album_art" class="album_art" src="images/album.gif"/>
         </div>
-        <div class="box total_time" id="total_time">0:00</div>
-      </div>
-      <div id="bar_container">
-        <div id="song_progress">
+      </td>
+      <td>
+        <div id="song_info_spot">
+          <b id="title" class="song_text">No Music Playing</b>
+          <div id="artist" class="song_text">You Should Play a Song</div>
+          <div id="album" class="song_text"></div>
         </div>
+      </td>
+    </tr>
+  </table>
+  <div class="progress_container">
+    <div class="time_text">
+      <div class="box current_time" id="current_time">0:00</div>
+      <div class="box space_time">
+        <table class="control_table">
+          <tr>
+            <td align="center">
+              <img class="large_control" id="prev" src="images/prev.png">
+              <img class="large_control" id="play" src="images/play.png">
+              <img class="large_control" id="next" src="images/next.png">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="box total_time" id="total_time">0:00</div>
+    </div>
+    <div id="bar_container">
+      <div id="song_progress">
       </div>
     </div>
-    <div class="left_controls">
-      <img class="medium_control" id="shuffle" src="images/shuffle.png">
-      <img class="medium_control" id="repeat" src="images/repeat.png">
-    </div>
-    <div class="right_controls">
-      <img class="small_control" id="thumbsUp" src="images/positive.png">
-      <img class="small_control" id="thumbsDown" src="images/negative.png">
-    </div>
-  </body>
+  </div>
+  <div class="left_controls">
+    <img class="medium_control" id="shuffle" src="images/shuffle.png">
+    <img class="medium_control" id="repeat" src="images/repeat.png">
+  </div>
+  <div class="right_controls">
+    <img class="small_control" id="thumbsUp" src="images/positive.png">
+    <img class="small_control" id="thumbsDown" src="images/negative.png">
+  </div>
+</body>
 </html>
