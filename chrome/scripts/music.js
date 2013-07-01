@@ -57,6 +57,8 @@ function pressThumb(button) {
 }
 
 function update(callback) {
+    console.log("SHUFFLE",$("button[data-id='shuffle'][class='flat-button']").attr('value'));
+
   callback({
     status: $("button[data-id='play-pause']").attr('title') === 'Play' ? 'paused' : 'playing',
     title: $('#playerSongTitle').text(),
@@ -65,7 +67,7 @@ function update(callback) {
     album_art: $('#playingAlbumArt').attr('src'),
     progress: $('#time_container_current').text(),
     duration: $('#time_container_duration').text(),
-    shuffleStatus: $("button[data-id='shuffle']").attr('value'),
+    shuffleStatus: $("button[data-id='shuffle'][class='flat-button']").attr('value'),
     repeatStatus: $("button[data-id='repeat']").attr('value'),
     thumbsUpStatus: $("li[title='Thumbs up']").attr('class'),
     thumbsDownStatus: $("li[title='Thumbs down']").attr('class')
