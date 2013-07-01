@@ -1,3 +1,5 @@
+var IS_NOTIFICATION = 0;
+
 document.addEventListener('DOMContentLoaded', function () {
   setTitle("No Music Playing");
   setArtist("You should play a song");
@@ -131,6 +133,15 @@ function updateCurrentSongWithData(data) {
   setAlbum(data.album);
   setAlbumArt(data.album_art);
   setProgress(data.progress, data.duration, data.status === 'playing');
+
+// Use background html and javascript
+
+  if(IS_NOTIFICATION){
+      var notification = webkitNotifications.createHTMLNotification(
+        'notification.html'  // html url - can be relative
+      );  
+      notification.show();
+  }
 }
 
 function prev() {

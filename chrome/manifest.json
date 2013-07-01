@@ -19,7 +19,7 @@
         ]
       }
     ],
-    "permissions": [ "tabs", "https://play.google.com/music/*" ],
+    "permissions": [ "tabs", "https://play.google.com/music/*", "notifications" ],
     "icons": { 
       "16":  "images/icon16.png",
       "48":  "images/icon48.png",
