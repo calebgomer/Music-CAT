@@ -86,7 +86,6 @@
 #song_info_spot {
   overflow:hidden;
   white-space:nowrap;
-  max-width:14em;
   padding-left: 0.4em;
   position: absolute;
   top: 0px;
