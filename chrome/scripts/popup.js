@@ -294,7 +294,7 @@ function setupMarquees(){
     }
     console.log(marquees);
   }
-  marqueeTimeoutID = setInterval(updateMarquees,100);
+  setTimeout(setupMarqueeInterval,1000);
 }
 function updateMarquees(){
   var i;
@@ -308,3 +308,39 @@ function updateMarquees(){
     }
   }
 }
+function shiftMarqueeLeft(){
+  var i;
+  for( i = 0; i < marquees.length; i++){
+    var text=marquees[i];
+    text.style.left=(parseInt(text.style.left)-2)+"px";
+    console.log(text.style.right);
+    if(parseInt(text.style.left)+text.offsetWidth < text.parentNode.offsetWidth){
+	clearInterval(marqueeTimeoutID);
+	setTimeout(setupMarqueeInterval,1000);
+    }
+  }
+}
+function shiftMarqueeRight(){
+  var i;
+  for( i = 0; i < marquees.length; i++){
+    var text = marquees[i];
+    text.style.left=(parseInt(text.style.left)+2)+"px";
+    if(parseInt(text.style.left) > 0){
+      clearInterval(marqueeTimeoutID);
+      setTimeout(setupMarqueeInterval,1000);
+    }
+  }
+}
+var direction="Left";
+function setupMarqueeInterval(){
+  var funcName;
+  if(direction=="Left"){
+      funcName=shiftMarqueeLeft;
+      direction="Right";
+  } else {
+      funcName=shiftMarqueeRight;
+      direction="Left";
+  }
+  marqueeTimeoutID=setInterval(funcName,100);
+}
+
