@@ -48,7 +48,7 @@ chrome.runtime.onMessage.addListener(function(req, sender, res) {
 });
 
 function press(button, callback) {
-  $("button[data-id='"+button+"']").click();
+  $("button[data-id='"+button+"'][class='flat-button']").click();
 }
 
 function pressThumb(button) {
@@ -57,7 +57,7 @@ function pressThumb(button) {
 }
 
 function update(callback) {
-    console.log("SHUFFLE",$("button[data-id='shuffle'][class='flat-button']").attr('value'));
+    console.log("SHUFFLE",$("button[data-id='shuffle'][class='flat-button']"));
 
   callback({
     status: $("button[data-id='play-pause']").attr('title') === 'Play' ? 'paused' : 'playing',
