@@ -285,35 +285,28 @@ function setupMarquees(){
   var hasMarquee=false;
   for(i=0;i<marqueeDivs.length; i++){
     var container=marqueeDivs[i];
-    var text=container.getElementsByClassName("song_text")[0];
-    console.log(text.offsetWidth);
-    console.log(container.offsetWidth);
-    if(text.offsetWidth > container.offsetWidth){
-	hasMarquee=true;
-	marquees.push(text);
+    var j;
+    var elements=container.getElementsByClassName("song_text");
+    for(j=0; j < elements.length; j++) {
+    	var text=container.getElementsByClassName("song_text")[j];
+    	console.log(text.offsetWidth);
+    	console.log(container.offsetWidth);
+    	if(text.offsetWidth > container.offsetWidth){
+		hasMarquee=true;
+		marquees.push(text);
+		break;
+    	}
+    	console.log(marquees);
     }
-    console.log(marquees);
   }
   setTimeout(setupMarqueeInterval,1000);
-}
-function updateMarquees(){
-  var i;
-  for(i = 0; i < marquees.length; i++){
-    var text = marquees[i];
-    //console.log(parseInt(text.style.left)-2, -1*text.offsetWidth);
-    text.style.left=(parseInt(text.style.left)-2)+"px";
-    if(parseInt(text.style.left) < -1*text.offsetWidth){
-	console.log("SHIFT TO LEFT");
-	text.style.left=text.parentNode.offsetWidth+"px";
-    }
-  }
 }
 function shiftMarqueeLeft(){
   var i;
   for( i = 0; i < marquees.length; i++){
     var text=marquees[i];
     text.style.left=(parseInt(text.style.left)-2)+"px";
-    console.log(text.style.right);
+    console.log(text.style.left);
     if(parseInt(text.style.left)+text.offsetWidth < text.parentNode.offsetWidth){
 	clearInterval(marqueeTimeoutID);
 	setTimeout(setupMarqueeInterval,1000);
