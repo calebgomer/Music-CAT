@@ -78,10 +78,10 @@
   text-align: right;
 }
 
-#song_info {
-  padding: 0px;
-  margin: 0px;
-}
+/*#song_info {
+ // padding: 0px;
+ // margin: 0px;
+}*/
 
 #song_info_spot {
   overflow:hidden;
@@ -95,6 +95,9 @@
 .song_text {
   font-family: Tahoma, Geneva, sans-serif;
   position: relative;
+  -webkit-margin-after:0em;
+  -webkit-margin-before:0em;
+  left:0px;
 }
 
 .marquee-container {
