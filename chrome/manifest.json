@@ -6,7 +6,7 @@
   "version": "1.0",
   "options_page": "options.html",
   "browser_action": {
-    "default_icon": "images/icon128.png",
+    "default_icon": "images/icon128V2.png",
     "default_popup": "popup.html"
     },
     "content_scripts": [
@@ -21,8 +21,8 @@
     ],
     "permissions": [ "tabs", "https://play.google.com/music/*", "notifications" ],
     "icons": { 
-      "16":  "images/icon16.png",
-      "48":  "images/icon48.png",
-      "128": "images/icon128.png"
+      "16":  "images/icon16V2.png",
+      "48":  "images/icon48V2.png",
+      "128": "images/icon128V2.png"
     }
   }
