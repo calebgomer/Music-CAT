@@ -1,3 +1,7 @@
+.control:hover {
+  opacity: 0.5;
+}
+
 .left_controls {
   margin: 0px;
   padding: 0px;
@@ -28,30 +32,10 @@
   vertical-align: middle;
 }
 
-.play_large_control:hover{
-  background-color:orange;
-}
-
-.prev_large_control:hover{
-  background-color:orange;
-}
-
-.next_large_control:hover{
-  background-color:orange;
-}
-
 .medium_control {
   width: 1.8em;
   height: 1.8em;
   vertical-align: middle;
-}
-
-.shuffle_medium_control:hover{
-  background-color:orange;
-}
-
-.repeat_medium_control:hover{
-  background-color:orange;
 }
 
 .small_control {
@@ -60,13 +44,6 @@
   vertical-align: middle;
 }
 
-.thumbsUp_small_control:hover{
-  background-color:orange;
-}
-
-.thumbsDown_small_control:hover{
-  background-color:orange;
-}
 .progress_container {
   width: 100%;
   position: absolute;
