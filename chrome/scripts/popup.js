@@ -122,10 +122,12 @@ function sendAction(action, callback) {
   sendMessage({action: action}, callback);
 }
 var currentData;
+var first = true;
 function updateCurrentSong() {
   sendAction('getSongInfo', function(data) {
     updateCurrentSongWithData(data);
     currentData=data;
+    if(first){first=false; setupMarquees();}
   });
 }
 function updateCurrentSongWithData(data) {
@@ -273,3 +275,36 @@ function pad(num, size) {
   return s;
 }
 // **end-warning** non-intuitive code ended
+
+var marqueeTimeoutID;
+var marquees;
+function setupMarquees(){
+  var marqueeDivs=$('.marquee-container');
+  var i;
+  marquees=new Array();
+  var hasMarquee=false;
+  for(i=0;i<marqueeDivs.length; i++){
+    var container=marqueeDivs[i];
+    var text=container.getElementsByClassName("song_text")[0];
+    console.log(text.offsetWidth);
+    console.log(container.offsetWidth);
+    if(text.offsetWidth > container.offsetWidth){
+	hasMarquee=true;
+	marquees.push(text);
+    }
+    console.log(marquees);
+  }
+  marqueeTimeoutID = setInterval(updateMarquees,100);
+}
+function updateMarquees(){
+  var i;
+  for(i = 0; i < marquees.length; i++){
+    var text = marquees[i];
+    //console.log(parseInt(text.style.left)-2, -1*text.offsetWidth);
+    text.style.left=(parseInt(text.style.left)-2)+"px";
+    if(parseInt(text.style.left) < -1*text.offsetWidth){
+	console.log("SHIFT TO LEFT");
+	text.style.left=text.parentNode.offsetWidth+"px";
+    }
+  }
+}

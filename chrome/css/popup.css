@@ -13,7 +13,6 @@
   vertical-align: center;
   height: 2em;
 }
-
 .right_controls {
   margin: 0px;
   padding: 0px;
@@ -95,6 +94,12 @@
 
 .song_text {
   font-family: Tahoma, Geneva, sans-serif;
+  position: relative;
+}
+
+.marquee-container {
+  width: 15em;
+  overflow:hidden;
 }
 
 body {
@@ -106,7 +111,7 @@ body {
   background-color: #E4E4E4;
 }
 
-.album_container{
+/*.album_container{
   width: auto;
   padding: 0px;
   margin: 0px;
@@ -114,7 +119,7 @@ body {
   left: 0px;
   position: absolute;
   overflow: hidden;
-}
+}*/
 
 .album_art {
   padding: 0px;
