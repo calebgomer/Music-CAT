@@ -1,53 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="727.269px" height="672.279px" viewBox="0 0 727.269 672.279" enable-background="new 0 0 727.269 672.279"
 	 xml:space="preserve">
-<g id="svg3621" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" sodipodi:docname="New document 2" inkscape:version="0.47 r22583">
-	<defs>
-		
-		
-			<inkscape:perspective  inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="765 : 495 : 1" id="perspective3630" inkscape:vp_x="0 : 495 : 1" sodipodi:type="inkscape:persp3d" inkscape:persp3d-origin="382.5 : 330 : 1">
-			</inkscape:perspective>
-		
-			<inkscape:perspective  inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="1 : 0.5 : 1" id="perspective3640" inkscape:vp_x="0 : 0.5 : 1" sodipodi:type="inkscape:persp3d" inkscape:persp3d-origin="0.5 : 0.33333333 : 1">
-			</inkscape:perspective>
-	</defs>
+<g id="Layer_1_1_">
 	
-		<sodipodi:namedview  showgrid="false" inkscape:cy="745.51268" inkscape:cx="43.087739" inkscape:zoom="0.12727922" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" id="namedview3625" inkscape:window-maximized="0" inkscape:window-y="172" inkscape:window-x="865" inkscape:window-height="483" inkscape:window-width="550" inkscape:current-layer="layer1" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:document-units="in">
-		</sodipodi:namedview>
-	<g id="g3612" transform="matrix(6.8233029,0,0,6.8233029,-47.527415,191.69631)">
-		<path id="path3612" fill="#FF9300" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="
-			M11.011-25.094L15.89,0.782c-3.779,6.362-5.925,13.63-5.925,21.346c0,25.017,22.513,45.305,50.271,45.305
-			c27.758,0,50.315-20.288,50.315-45.305c0-7.474-2.059-14.519-5.62-20.736l4.879-25.833l-20.561,9.54
-			c-8.196-5.225-18.217-8.321-29.013-8.321c-10.481,0-20.213,2.891-28.272,7.841L11.011-25.094z"/>
+		<g id="svg3621" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" inkscape:version="0.47 r22583" sodipodi:docname="New document 2">
+		<defs>
+			
+			
+				<inkscape:perspective  sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 495 : 1" id="perspective3630" inkscape:vp_z="765 : 495 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:persp3d-origin="382.5 : 330 : 1">
+				</inkscape:perspective>
+			
+				<inkscape:perspective  sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 0.5 : 1" id="perspective3640" inkscape:vp_z="1 : 0.5 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:persp3d-origin="0.5 : 0.33333333 : 1">
+				</inkscape:perspective>
+		</defs>
 		
-			<path id="path3478" display="none" fill="#FFFFFF" stroke="#000000" stroke-width="3.9782" stroke-linecap="round" stroke-linejoin="round" d="
-			M11.011-25.094L15.89,0.782c-3.779,6.362-5.925,13.63-5.925,21.346c0,25.017,22.513,45.305,50.271,45.305
-			c27.758,0,50.315-20.288,50.315-45.305c0-7.474-2.059-14.519-5.62-20.736l4.879-25.833l-20.561,9.54
-			c-8.196-5.225-18.217-8.321-29.013-8.321c-10.481,0-20.213,2.891-28.272,7.841L11.011-25.094z"/>
-		<path id="path3183" sodipodi:cx="72" sodipodi:cy="48" sodipodi:rx="4" sodipodi:ry="4" sodipodi:type="arc" display="none" d="
-			M50.734,17.625c-1.927,4.283-6.961,6.193-11.244,4.266c-4.283-1.927-6.193-6.961-4.266-11.244s6.961-6.193,11.244-4.266
-			S52.661,13.342,50.734,17.625z"/>
-		
-			<path id="path3185" sodipodi:cx="72" sodipodi:cy="48" sodipodi:rx="4" sodipodi:ry="4" sodipodi:type="arc" display="none" fill="#FFFFFF" d="
-			M48.542,15.116c-0.763,1.696-2.757,2.453-4.454,1.69c-1.697-0.763-2.453-2.757-1.69-4.454c0.763-1.697,2.757-2.453,4.454-1.69
-			C48.548,11.426,49.305,13.42,48.542,15.116z"/>
-		<path id="path3195" sodipodi:cx="72" sodipodi:cy="48" sodipodi:rx="4" sodipodi:ry="4" sodipodi:type="arc" display="none" d="
-			M85.645,17.554c-1.927,4.283-6.961,6.193-11.244,4.266c-4.283-1.927-6.193-6.961-4.266-11.244
-			c1.927-4.283,6.961-6.193,11.244-4.266C85.662,8.237,87.571,13.271,85.645,17.554z"/>
-		
-			<path id="path3197" sodipodi:cx="72" sodipodi:cy="48" sodipodi:rx="4" sodipodi:ry="4" sodipodi:type="arc" display="none" fill="#FFFFFF" d="
-			M83.452,15.045c-0.763,1.696-2.757,2.453-4.454,1.69c-1.697-0.763-2.453-2.757-1.69-4.454c0.763-1.697,2.757-2.453,4.454-1.69
-			C83.458,11.354,84.215,13.349,83.452,15.045z"/>
-		
-			<path id="path3588" sodipodi:nodetypes="csccsc" display="none" fill="none" stroke="#000000" stroke-width="2.788" stroke-linecap="round" stroke-linejoin="round" d="
-			M36.784,39.465c0.72,5.451,3.959,11.035,11.152,11.152c9.56,0.158,17.384-10.258,19.683-17.547
-			c-5.259-0.761-10.517-0.719-15.776-0.234c2.299,6.939,10.416,17.652,18.397,17.781c7.657,0.124,10.288-4.91,11.152-11.152"/>
+			<sodipodi:namedview  pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:zoom="0.12727922" inkscape:cx="43.087739" inkscape:cy="745.51268" showgrid="false" id="namedview3625" inkscape:document-units="in" inkscape:pageopacity="0.0" inkscape:current-layer="layer1" inkscape:pageshadow="2" inkscape:window-width="550" inkscape:window-height="483" inkscape:window-x="865" inkscape:window-y="172" inkscape:window-maximized="0">
+			</sodipodi:namedview>
+		<g id="g3612" transform="matrix(6.8233029,0,0,6.8233029,-47.527415,191.69631)">
+			<path id="path3612" fill="#FF9300" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="
+				M11.011-25.094L15.89,0.782c-3.779,6.362-5.925,13.63-5.925,21.346c0,25.017,22.513,45.305,50.271,45.305
+				c27.758,0,50.315-20.288,50.315-45.305c0-7.474-2.059-14.519-5.62-20.736l4.879-25.833l-20.561,9.54
+				c-8.196-5.225-18.217-8.321-29.013-8.321c-10.481,0-20.213,2.891-28.272,7.841L11.011-25.094z"/>
+			
+				<path id="path3478" display="none" fill="#FFFFFF" stroke="#000000" stroke-width="3.9782" stroke-linecap="round" stroke-linejoin="round" d="
+				M11.011-25.094L15.89,0.782c-3.779,6.362-5.925,13.63-5.925,21.346c0,25.017,22.513,45.305,50.271,45.305
+				c27.758,0,50.315-20.288,50.315-45.305c0-7.474-2.059-14.519-5.62-20.736l4.879-25.833l-20.561,9.54
+				c-8.196-5.225-18.217-8.321-29.013-8.321c-10.481,0-20.213,2.891-28.272,7.841L11.011-25.094z"/>
+			<path id="path3183" sodipodi:ry="4" sodipodi:rx="4" sodipodi:cy="48" sodipodi:cx="72" sodipodi:type="arc" display="none" d="
+				M50.734,17.625c-1.927,4.283-6.961,6.193-11.244,4.266c-4.283-1.927-6.193-6.961-4.266-11.244
+				c1.927-4.283,6.961-6.193,11.244-4.266C50.751,8.308,52.661,13.342,50.734,17.625z"/>
+			
+				<path id="path3185" sodipodi:ry="4" sodipodi:rx="4" sodipodi:cy="48" sodipodi:cx="72" sodipodi:type="arc" display="none" fill="#FFFFFF" d="
+				M48.542,15.116c-0.763,1.696-2.757,2.453-4.454,1.69c-1.697-0.763-2.453-2.757-1.69-4.454s2.757-2.453,4.454-1.69
+				C48.548,11.426,49.305,13.42,48.542,15.116z"/>
+			<path id="path3195" sodipodi:ry="4" sodipodi:rx="4" sodipodi:cy="48" sodipodi:cx="72" sodipodi:type="arc" display="none" d="
+				M85.645,17.554c-1.927,4.283-6.961,6.193-11.244,4.266c-4.283-1.927-6.193-6.961-4.266-11.244
+				c1.927-4.283,6.961-6.193,11.244-4.266C85.662,8.237,87.571,13.271,85.645,17.554z"/>
+			
+				<path id="path3197" sodipodi:ry="4" sodipodi:rx="4" sodipodi:cy="48" sodipodi:cx="72" sodipodi:type="arc" display="none" fill="#FFFFFF" d="
+				M83.452,15.045c-0.763,1.696-2.757,2.453-4.454,1.69c-1.697-0.763-2.453-2.757-1.69-4.454c0.763-1.697,2.757-2.453,4.454-1.69
+				C83.458,11.354,84.215,13.349,83.452,15.045z"/>
+			
+				<path id="path3588" sodipodi:nodetypes="csccsc" display="none" fill="none" stroke="#000000" stroke-width="2.788" stroke-linecap="round" stroke-linejoin="round" d="
+				M36.784,39.465c0.72,5.451,3.959,11.035,11.152,11.152c9.56,0.158,17.384-10.258,19.683-17.547
+				c-5.259-0.761-10.517-0.719-15.776-0.234c2.299,6.939,10.416,17.652,18.397,17.781c7.657,0.124,10.288-4.91,11.152-11.152"/>
+		</g>
 	</g>
 </g>
-<g id="Layer_2">
-	<polygon points="588.392,342.664 384.855,460.176 181.318,577.688 181.318,342.664 181.318,107.64 384.855,225.152 	"/>
+<g id="Layer_2_1_">
+	<g id="Layer_2">
+		<polygon points="549.763,336.14 249.505,509.493 249.505,162.787 		"/>
+	</g>
 </g>
 </svg>
