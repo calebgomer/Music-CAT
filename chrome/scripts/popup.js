@@ -12,7 +12,6 @@ function contentLoaded(){
 
   registerButtonListeners();
   updateCurrentSong();
-  console.log("DOM CONTENT LOADED");
 }
 
 var LEFT = 37;
@@ -34,13 +33,23 @@ document.onkeyup=function(e){
       play();
       break;
 
-    case UP:
-      thumbsUp();
+    case UP:{
+	if(currentData.thumbsDownStatus==='selected'){
+	    thumbsDown();
+	} else {
+	    thumbsUp();
+	}
       break;
+    }
 
-    case DOWN:
-      thumbsDown();
+    case DOWN:{
+     	if(currentData.thumbsUpStatus==='selected'){
+	    thumbsUp();
+	} else {
+	    thumbsDown();
+	}
       break;
+    }
   }
 }
 
@@ -91,14 +100,14 @@ function findMusicTab(callback) {
 } 
 function openSettings(){
   $('body').load("options.html",function(){
-    console.log("RETURN BUTTON",$('#return'));
+    //console.log("RETURN BUTTON",$('#return'));
     $('#return').click(function(){
       openMain();
     });
   });
 }
 function openMain(){
-  console.log("OPEN MAIN");
+  //console.log("OPEN MAIN");
   $('body').load("popup.html",function(){
     contentLoaded();
   });
@@ -111,10 +120,11 @@ function sendMessage(msg, callback) {
 function sendAction(action, callback) {
   sendMessage({action: action}, callback);
 }
-
+var currentData;
 function updateCurrentSong() {
   sendAction('getSongInfo', function(data) {
     updateCurrentSongWithData(data);
+    currentData=data;
   });
 }
 function updateCurrentSongWithData(data) {

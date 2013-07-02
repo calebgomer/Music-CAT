@@ -57,7 +57,6 @@ function pressThumb(button) {
 }
 
 function update(callback) {
-    console.log("SHUFFLE",$("button[data-id='shuffle'][class='flat-button']"));
 
   callback({
     status: $("button[data-id='play-pause']").attr('title') === 'Play' ? 'paused' : 'playing',
