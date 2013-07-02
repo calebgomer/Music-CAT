@@ -20,6 +20,7 @@ var RIGHT = 39;
 var UP = 38;
 var DOWN = 40;
 document.onkeyup=function(e){
+    console.log(e.keyCode);
   switch(e.keyCode) {
     case LEFT:
       prev();
@@ -40,7 +41,7 @@ document.onkeyup=function(e){
 	    thumbsUp();
 	}
       break;
-    }
+    };
 
     case DOWN:{
      	if(currentData.thumbsUpStatus==='selected'){
@@ -49,7 +50,7 @@ document.onkeyup=function(e){
 	    thumbsDown();
 	}
       break;
-    }
+    };
   }
 }
 

@@ -23,7 +23,7 @@ chrome.runtime.onMessage.addListener(function(req, sender, res) {
       break;
 
     case 'shuffle':
-      press('shuffle');
+      pressShuffle('shuffle');
       update(res);
       break;
 
@@ -48,6 +48,9 @@ chrome.runtime.onMessage.addListener(function(req, sender, res) {
 });
 
 function press(button, callback) {
+  $("button[data-id='"+button+"']").click();
+}
+function pressShuffle(button){
   $("button[data-id='"+button+"'][class='flat-button']").click();
 }
 
