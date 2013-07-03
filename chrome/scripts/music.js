@@ -1,4 +1,9 @@
 chrome.runtime.onMessage.addListener(function(req, sender, res) {
+    console.log("OWJER",req);
+    if(req.scroll !== undefined){
+	console.log(req.scroll);
+	clickProgressBar(req.scroll);	
+    }
   switch(req.action) {
 
     case 'prev':
@@ -52,6 +57,8 @@ function press(button, callback) {
 }
 function pressShuffle(button){
   $("button[data-id='"+button+"'][class='flat-button']").click();
+  clickProgressBar(50);
+
 }
 
 function pressThumb(button) {
@@ -80,5 +87,20 @@ function triggerMouseEvent(element, eventname){
     var event = document.createEvent('MouseEvents');
     event.initMouseEvent(eventname, true, true, document.defaultView, 1, 0, 0, 0, 0, false, false, false, false, 0, element);
     element.dispatchEvent(event);
+}
+function clickProgressBar(percent){
+  var element=document.getElementById("slider");
+  console.log(element.offsetWidth);
+  var width=element.offsetWidth;
+  var image = $('#playingAlbumArt')[0];
+  console.log(image);
+  console.log(image.offsetWidth);
+  var offset = image.offsetWidth * percent / 100;
+  var x =offset+ (width * percent / 100);
+  var eventname="mousedown";
+  var event = document.createEvent('MouseEvents');
+  event.initMouseEvent(eventname, true, true, document.defaultView, 1, x, 228, x, 228, false, false, false, false, 0, element);
+  element.dispatchEvent(event);
+
 }
 

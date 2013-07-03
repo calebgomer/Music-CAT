@@ -78,7 +78,13 @@ function registerButtonListeners() {
   });
   $('#settings').click(function(){
     openSettings();
-  })
+  });
+  $('#progress_container').click(function(event){
+    console.log(event.clientX);
+    console.log(document.getElementById("progress_container").offsetWidth);
+    console.log(100*event.clientX/document.getElementById("progress_container").offsetWidth);
+    sendPercent(100*event.clientX/document.getElementById("progress_container").offsetWidth);
+  });
 }
 
 // change to find the music tab insta
@@ -179,6 +185,9 @@ function updateCurrentSongWithData(data) {
   }
 }
 
+function sendPercent(percent) {
+  sendMessage({'scroll':percent});
+}
 function prev() {
   sendAction('prev', function(response) {
     updateCurrentSongWithData(response);
