@@ -57,8 +57,6 @@ function press(button, callback) {
 }
 function pressShuffle(button){
   $("button[data-id='"+button+"'][class='flat-button']").click();
-  clickProgressBar(50);
-
 }
 
 function pressThumb(button) {

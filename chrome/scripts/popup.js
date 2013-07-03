@@ -19,6 +19,8 @@ var SPACE = 32;
 var RIGHT = 39;
 var UP = 38;
 var DOWN = 40;
+var R = 82;
+var S = 83;
 document.onkeyup=function(e){
     console.log(e.keyCode);
   switch(e.keyCode) {
@@ -33,6 +35,12 @@ document.onkeyup=function(e){
     case SPACE:
       play();
       break;
+	case S:
+	  shuffle();
+	  break;
+	case R:
+	  repeat();
+	  break;
 
     case UP:{
 	if(currentData.thumbsDownStatus==='selected'){
