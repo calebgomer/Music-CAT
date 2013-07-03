@@ -95,7 +95,7 @@ function clickProgressBar(percent){
   var image = $('#playingAlbumArt')[0];
   console.log(image);
   console.log(image.offsetWidth);
-  var offset = image.offsetWidth * percent / 100;
+  var offset = image.offsetWidth/* * percent / 100*/;
   var x =offset+ (width * percent / 100);
   var eventname="mousedown";
   var event = document.createEvent('MouseEvents');
