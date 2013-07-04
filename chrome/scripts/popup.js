@@ -63,6 +63,7 @@ document.onkeyup=function(e){
 }
 
 function registerButtonListeners() {
+  window.addEventListener('mouseup',mouseUp,false);
   $('#prev').click(function() {
     prev();
   });
@@ -93,6 +94,52 @@ function registerButtonListeners() {
     console.log(100*event.clientX/document.getElementById("progress_container").offsetWidth);
     sendPercent(100*event.clientX/document.getElementById("progress_container").offsetWidth);
   });
+  $('#bar_container').mousedown(function(event){
+    window.addEventListener('mousemove',divMove,true);
+    $('body').addClass("unselectable");
+    mouseWasDown=true;
+    clearTimeout(progressTimeoutID);
+
+    var div=$('#bar_container')[0];
+    var bar=$('#song_progress')[0];
+    bar.style.width=100*event.clientX/div.offsetWidth+"%";
+  });
+}
+var mouseWasDown=false;
+function divMove(e){
+  var div =$('#bar_container')[0];
+  var bar = $('#song_progress')[0];
+  if(bar.style.width===undefined || bar.style.width=="")
+    return;
+  if(e.clientX > div.offsetWidth){
+    //sendPercent(100);
+    bar.style.width="100%";
+  } else if(e.clientX < 0){
+    //sendPercent(0);
+    bar.style.width="0%";
+  } else {
+    //sendPercent(100*e.clientX / div.offsetWidth);
+    bar.style.width=100*e.clientX/div.offsetWidth +"%";
+  }
+
+  //do the stuff here
+}
+function mouseUp(e){
+  window.removeEventListener('mousemove',divMove,true);
+  $('body').removeClass("unselectable");
+  var div=$('#bar_container')[0];
+  if(mouseWasDown){
+    if(e.clientX > div.offsetWidth){
+      sendPercent(100);
+    } else if(e.clientX < 0){
+      sendPercent(0);
+    } else {
+      sendPercent(100*e.clientX / div.offsetWidth);
+    }
+    progressTimeoutID = setTimeout(updateCurrentSong, 500);
+    console.log("TIMEOUT SET");
+  }
+  mouseWasDown=false;
 }
 
 // change to find the music tab insta
@@ -138,6 +185,7 @@ function sendAction(action, callback) {
 var currentData;
 var first = true;
 function updateCurrentSong() {
+  console.log("UPDATE CURRENT SONG");
   sendAction('getSongInfo', function(data) {
     updateCurrentSongWithData(data);
     currentData=data;

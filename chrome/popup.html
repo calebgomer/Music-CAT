@@ -6,7 +6,7 @@
     <script src="scripts/jquery.js"></script> 
     <script src="scripts/popup.js"></script>
   </head>
-  <body>
+  <body class="unselectable">
     <table id="song_info">
       <tr>
         <td>
@@ -33,7 +33,7 @@
     </table>
     <div id="progress_container" class="progress_container">
       <div class="time_text">
-        <div class="box current_time" id="current_time">0:00</div>
+        <div class="box current_time unselctable" id="current_time">0:00</div>
         <div class="box space_time">
           <table class="control_table">
             <tr>
@@ -45,7 +45,7 @@
             </tr>
           </table>
         </div>
-        <div class="box total_time" id="total_time">0:00</div>
+        <div class="box total_time unselectable" id="total_time">0:00</div>
       </div>
       <div id="bar_container">
         <div id="song_progress">
