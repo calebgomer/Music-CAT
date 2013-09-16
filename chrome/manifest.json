@@ -3,7 +3,7 @@
 
   "name": "Music CAT for Google Play Music™",
   "description": "Music CAT (Control from All Tabs) gives you control of your Google Play Music™ from any tab and with your keyboard.",
-  "version": "1.0",
+  "version": "1.1",
   "options_page": "options.html",
 
   "background": {
