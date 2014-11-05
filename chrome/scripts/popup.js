@@ -228,7 +228,7 @@ function updateCurrentSongWithData(data) {
   setTitle(data.title);
   setArtist(data.artist);
   setAlbum(data.album);
-  setAlbumArt(data.album_art);
+  setAlbumArt((data.album_art).replace("https://",""));
   setProgress(data.progress, data.duration, data.status === 'playing');
 
 // Use background html and javascript
